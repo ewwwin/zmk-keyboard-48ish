@@ -1,3 +1,4 @@
+name: zmk-keyboard-48ish
 build:
   settings:
     board_root: .

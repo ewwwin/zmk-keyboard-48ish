@@ -1,0 +1,6 @@
+if SHIELD_48ISH
+
+config ZMK_KEYBOARD_NAME
+	default "48ish Keyboard"
+
+endif

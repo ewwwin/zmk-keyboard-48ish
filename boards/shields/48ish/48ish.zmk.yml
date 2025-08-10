@@ -1,0 +1,9 @@
+file_format: "1"
+id: 48ish
+name: 48ish
+type: shield
+url: https://github.com/ewwwin/48ish
+requires:
+  - pro_micro
+features:
+  - keys

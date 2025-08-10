@@ -1,0 +1,52 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer { // Layer 0
+            bindings = <
+				&kp TAB     &kp Q      &kp W     &kp E     &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O       &kp P      &kp BSPC
+				&kp ESC     &kp A      &kp S     &kp D     &kp F      &kp G      &kp H      &kp J      &kp K      &kp L       &kp SEMI   &kp APOS
+				&kp LSHIFT  &kp Z      &kp X     &kp C     &kp V      &kp B      &kp N      &kp M      &kp COMMA  &kp PERIOD  &kp SLASH  &kp ENTER
+				&kp uh      &kp LCTRL  &kp LALT  &kp LGUI  &kp lower  &kp SPACE  &kp SPACE  &kp raise  &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT
+            >;
+        };
+
+		lower_layer { // Layer 1
+			bindings = <
+				&kp TILDE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS   &kp STAR    &kp LPAR      &kp RPAR      &trans
+				&kp DEL    &kp F1    &kp F2  &kp F3    &kp F4    &kp F5     &kp F6     &kp UNDER  &kp PLUS    &kp LBRC      &kp RBRC      &kp PIPE
+				&trans     &kp F7    &kp F8  &kp F9    &kp F10   &kp F11    &kp F12    &kp NUHS   &kp NUBS    &kp HOME      &kp END       &trans
+				&kp COMMA  &trans    &trans  &trans    &trans    &trans     &trans     &trans     &kp C_NEXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PP
+			>;
+		};
+
+		raise_layer { // Layer 2
+			bindings = <
+				&kp GRAVE  &kp 1   &kp 2   &kp 3   &kp 4    &kp 5    &kp 6    &kp 7      &kp 8       &kp 9         &kp 0         &trans
+				&kp DEL    &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6   &kp MINUS  &kp EQUAL   &kp LBKT      &kp RBKT      &kp BSLH
+				&trans     &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &kp NUHS   &kp NUBS    &kp HOME      &kp END       &trans
+				&kp COMMA  &trans  &trans  &trans  &trans   &trans   &trans   &trans     &kp C_NEXT  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PP
+			>;
+		};
+
+		adjust_layer { // Layer 3
+			bindings = <
+				&trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&kp DEL &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+				&trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+			>;
+		};
+    };
+
+	conditional_layers {
+		compatible = "zmk,conditional-layers";
+		tri_layer {
+			if-layers = <1 2>;
+			then-layer = <3>;
+		};
+	};
+ };
