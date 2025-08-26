@@ -1,4 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "48ish-layouts.dtsi"
 
 / {
     kscan0: kscan0 {
@@ -41,14 +42,15 @@
     	>;
     };
 
-	physical_layout0: physical_layout_0 {
-		compatible = "zmk,physical-layout";
-		display-name = "Default Layout";
-		transform = <&default_transform>;
-	};
+    &split_space_layout {
+        transform = <&default_transform>;
+    }
+    &2u_space_layout {
+        transform = <&default_transform>;
+    }
 
 	chosen {
 		zmk,kscan = &kscan0;
-		zmk,physical-layout = &physical_layout0;
+		zmk,physical-layout = &split_space_layout;
 	};
 };
