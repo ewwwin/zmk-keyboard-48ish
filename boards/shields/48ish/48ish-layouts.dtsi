@@ -2,7 +2,7 @@
 #include <layouts/common/ortho_4x12/all1u.dtsi>
 
 / {
-    transform_1x2u: keymap_transform0 {
+    transform_1x2u: transform_1x2u {
     	compatible = "zmk,matrix-transform";
     	columns = <12>;
     	rows = <4>;
@@ -13,7 +13,7 @@
     		RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)         RC(3,7) RC(3,8) RC(3,9) RC(3,10) RC(3,11)
     	>;
     };
-    transform_all1u: keymap_transform0 {
+    transform_all1u: transform_all1u {
     	compatible = "zmk,matrix-transform";
     	columns = <12>;
     	rows = <4>;
