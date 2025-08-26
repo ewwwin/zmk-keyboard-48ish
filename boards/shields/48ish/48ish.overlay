@@ -42,15 +42,15 @@
     	>;
     };
 
-    &split_space_layout {
+    &layout_ortho_4x12_1x2u {
         transform = <&default_transform>;
     }
-    &2u_space_layout {
+    &layout_ortho_4x12_all1u {
         transform = <&default_transform>;
     }
 
 	chosen {
 		zmk,kscan = &kscan0;
-		zmk,physical-layout = &split_space_layout;
+		zmk,physical-layout = &layout_ortho_4x12_1x2u;
 	};
 };
