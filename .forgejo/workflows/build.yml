@@ -1,0 +1,27 @@
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build-and-deploy:
+    runs-on: docker
+    container:
+      image: git.lix.systems/lix-project/lix:latest
+    steps:
+      - name: "Install Dependencies"
+        run: |
+          nix-env -iA nixpkgs.nodejs_24 # for github actions stuff
+      - name: "Checkout"
+        run: |
+          git init
+          git remote add origin "https://${FORGEJO_REPOSITORY_OWNER}:${FORGEJO_TOKEN}@git.ewin.moe/${FORGEJO_REPOSITORY}.git"
+          git fetch --depth 1 origin "$FORGEJO_SHA"
+          git checkout FETCH_HEAD
+      - name: "Build"
+        run: |
+          echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+          nix build
+          # cp result/zmk.uf2 .
+      - name: "Upload Artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: firmware.uf2
+          path: result/zmk.uf2
